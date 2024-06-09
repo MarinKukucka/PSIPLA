@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SessionInfo>
+
+<table class="table-striped table-bordered dashboard">
+    <h1>Conducted sessions</h1>
+    @if(Model != null && Model.Any())
+    {
+        <thead>
+            <tr>
+                <th scope="col">SessionId</th>
+                <th scope="col">Patient</th>
+                <th scope="col">Psychologist</th>
+                <th scope="col">Requested</th>
+                <th scope="col">Finished</th>
+                <th scope="col">Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var info in Model)
+            {
+                <tr>
+                    <td>@info.SessionId</td>
+                    <td>@info.Patient</td>
+                    <td>@info.Psychologist</td>
+                    <td>@info.RequestDate</td>
+                    <td>@info.EndTime</td>
+                    <td>@info.Note</td>
+                </tr>
+            }
+        </tbody>
+    }
+</table>

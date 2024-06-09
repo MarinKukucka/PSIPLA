@@ -1,0 +1,36 @@
+﻿@model IEnumerable<TaskInfo>
+
+<table class="table-striped table-bordered dashboard">
+    <h1>My tasks</h1>
+    @if(Model != null && Model.Any())
+    {
+        <thead>
+            <tr>
+                <th scope="col">Task Name</th>
+                <th scope="col">SessionId</th>
+                <th scope="col">Patient</th>
+                <th scope="col">Requested</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var info in Model)
+            {
+                <tr>
+                    <td>@info.TaskName</td>
+                    <td>@info.SessionId</td>
+                    <td>@info.Patient</td>
+                    <td>@info.RequestDate</td>
+                    <td>
+                        <form asp-action="@nameof(HomeController.ConductSession)" method="post">
+                            <label for="note">Note: </label>
+                            <input type="text" name="note" />
+                            <input type="hidden" name="taskId" value="@info.TID" />
+                            <input type="submit" class="btn btn-primary btn-sm" value="Conduct session" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    }
+</table>

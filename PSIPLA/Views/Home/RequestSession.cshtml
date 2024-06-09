@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Session request";
+}
+
+<div>
+    <h4>Session request</h4>
+    <form asp-action="RequestSession" method="post">
+        <div>
+            <label for="id">Enter session id</label>
+            <input type="text" name="id" />
+        </div>
+        <div>
+            <input type="submit" class="btn btn-sm btn-primary" value="Request session" />
+        </div>
+    </form>
+</div>

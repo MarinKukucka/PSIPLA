@@ -1,0 +1,32 @@
+﻿@model PSIPLA.Models.DashboardData
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <partial name="Sessions" model="Model.AvailableSessions" />
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-lg-6">
+        <partial name="ConductedSessions" model="Model.ConductedSessions" />
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-lg-12">
+        <partial name="MyTasks" model="Model.MyTasks" />
+    </div>
+</div>
